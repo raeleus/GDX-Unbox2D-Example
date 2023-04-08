@@ -4,9 +4,9 @@
 <module rename-to="html">
     <source path=""/>
     <inherits name="com.badlogic.gdx.backends.gdx_backends_gwt"/>
-    <inherits name="com.ray3k.scene2d.primer.Core"/>
+    <inherits name="com.ray3k.unbox2d.Box2DSimpleExample"/>
     <inherits name="com.badlogic.gdx.physics.box2d.box2d-gwt"/>
-    <entry-point class="com.ray3k.scene2d.primer.gwt.GwtLauncher"/>
+    <entry-point class="com.ray3k.unbox2d.gwt.GwtLauncher"/>
     <set-configuration-property name="gdx.assetpath" value="../assets"/>
     <set-configuration-property name="xsiframe.failIfScriptTag" value="FALSE"/>
     <!-- These two lines reduce the work GWT has to do during compilation and also shrink output size. -->
