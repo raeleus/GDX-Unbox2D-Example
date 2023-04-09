@@ -14,14 +14,17 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import dev.lyze.gdxUnBox2d.*;
+import dev.lyze.gdxUnBox2d.BodyDefType;
+import dev.lyze.gdxUnBox2d.Box2dPhysicsWorld;
+import dev.lyze.gdxUnBox2d.GameObject;
+import dev.lyze.gdxUnBox2d.UnBox;
 import dev.lyze.gdxUnBox2d.behaviours.Box2dBehaviour;
 import dev.lyze.gdxUnBox2d.behaviours.SoutBehaviour;
 import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateBoxFixtureBehaviour;
 import space.earlygrey.shapedrawer.ShapeDrawer;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
-public class Box2DSimpleExample extends ApplicationAdapter {
+public class SampleGame extends ApplicationAdapter {
     public FitViewport viewport;
     private SpriteBatch batch;
     private UnBox<Box2dPhysicsWorld> unBox;
@@ -33,20 +36,19 @@ public class Box2DSimpleExample extends ApplicationAdapter {
         viewport.getCamera().translate(0, 0, 0);
         batch = new SpriteBatch();
         debugRenderer = new Box2DDebugRenderer();
-
         unBox = new UnBox<>(new Box2dPhysicsWorld(new World(new Vector2(0, 0), true)));
+
         GameObject rightGo = new GameObject(unBox);
         GameObject leftGo = new GameObject(unBox);
 
         new Box2dBehaviour(BodyDefType.DynamicBody, rightGo);
         new Box2dBehaviour(BodyDefType.DynamicBody, leftGo);
 
-        // Attach a logging behaviour to both of the game objects
+        new CreateBoxFixtureBehaviour(.5f, .5f, rightGo);
+        new CreateBoxFixtureBehaviour(.5f, .5f, leftGo);
+
         new SoutBehaviour("Right GO", false, rightGo);
         new SoutBehaviour("Left GO", false, leftGo);
-
-        new CreateBoxFixtureBehaviour(.5f, .5f, leftGo);
-        new CreateBoxFixtureBehaviour(.5f, .5f, rightGo);
 
         // Attach a movement behaviour to both game objects
         new MoveBehaviour(true, rightGo);
@@ -55,7 +57,7 @@ public class Box2DSimpleExample extends ApplicationAdapter {
 
     @Override
     public void render() {
-        ScreenUtils.clear(Color.DARK_GRAY);
+        ScreenUtils.clear(Color.GRAY);
 
         // Step through physics and update loops
         unBox.preRender(Gdx.graphics.getDeltaTime());
@@ -66,6 +68,7 @@ public class Box2DSimpleExample extends ApplicationAdapter {
         // Render the state
         batch.begin();
         unBox.render(batch);
+        //ex. stage.draw();
         batch.end();
 
         // Debug render all box2d bodies
@@ -73,11 +76,6 @@ public class Box2DSimpleExample extends ApplicationAdapter {
 
         // Clean up render loop
         unBox.postRender();
-    }
-
-    @Override
-    public void dispose() {
-
     }
 
     @Override
