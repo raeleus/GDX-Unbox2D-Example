@@ -15,7 +15,7 @@ import dev.lyze.gdxUnBox2d.behaviours.SoutBehaviour;
 import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateBoxFixtureBehaviour;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
-public class Box2DSimpleExample01 extends ApplicationAdapter {
+public class SampleGame01 extends ApplicationAdapter {
     public FitViewport viewport;
     private SpriteBatch batch;
     private UnBox<Box2dPhysicsWorld> unBox;
@@ -23,7 +23,7 @@ public class Box2DSimpleExample01 extends ApplicationAdapter {
 
     @Override
     public void create() {
-        viewport = new FitViewport(30, 10);
+        viewport = new FitViewport(30, 30);
         viewport.getCamera().translate(0, 0, 0);
         batch = new SpriteBatch();
         debugRenderer = new Box2DDebugRenderer();

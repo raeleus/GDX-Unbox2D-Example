@@ -29,7 +29,7 @@ public class SampleGame03 extends ApplicationAdapter {
 
     @Override
     public void create() {
-        viewport = new FitViewport(30, 10);
+        viewport = new FitViewport(30, 30);
         viewport.getCamera().translate(0, 0, 0);
         batch = new SpriteBatch();
         debugRenderer = new Box2DDebugRenderer();

@@ -3,7 +3,7 @@ package com.ray3k.unbox2d.gwt;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
-import com.ray3k.unbox2d.Box2DSimpleExample01;
+import com.ray3k.unbox2d.SampleGame01;
 
 /** Launches the GWT application. */
 public class GwtLauncher extends GwtApplication {
@@ -21,6 +21,6 @@ public class GwtLauncher extends GwtApplication {
 
         @Override
         public ApplicationListener createApplicationListener () {
-            return new Box2DSimpleExample01();
+            return new SampleGame01();
         }
 }
