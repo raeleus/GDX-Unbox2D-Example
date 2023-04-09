@@ -19,7 +19,7 @@ import dev.lyze.gdxUnBox2d.behaviours.SoutBehaviour;
 import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateCircleFixtureBehaviour;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
-public class SampleGame06 extends ApplicationAdapter {
+public class SampleGame07 extends ApplicationAdapter {
     public FitViewport viewport;
     private SpriteBatch batch;
     private UnBox<Box2dPhysicsWorld> unBox;
@@ -56,6 +56,9 @@ public class SampleGame06 extends ApplicationAdapter {
         new MoveBehaviour(true, leftGo);
         new KeyboardImprovedBehaviour(rightGo);
         new PlayerCollisionBehaviour(rightGo);
+
+        new TeamEnemyBehaviour(leftGo);
+        new TeamPlayerBehaviour(rightGo);
     }
 
     @Override

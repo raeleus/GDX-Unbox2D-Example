@@ -5,9 +5,9 @@ import dev.lyze.gdxUnBox2d.Behaviour;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 
-public class PlayerCollisionBehavior extends BehaviourAdapter {
+public class PlayerCollisionBehaviour extends BehaviourAdapter {
 
-    public PlayerCollisionBehavior(GameObject gameObject) {
+    public PlayerCollisionBehaviour(GameObject gameObject) {
         super(gameObject);
     }
 
