@@ -11,15 +11,17 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import dev.lyze.gdxUnBox2d.BodyDefType;
 import dev.lyze.gdxUnBox2d.Box2dPhysicsWorld;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.UnBox;
 import dev.lyze.gdxUnBox2d.behaviours.Box2dBehaviour;
 import dev.lyze.gdxUnBox2d.behaviours.SoutBehaviour;
+import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateBoxFixtureBehaviour;
 import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateCircleFixtureBehaviour;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
-public class SampleGame07 extends ApplicationAdapter {
+public class SampleGame08 extends ApplicationAdapter {
     public FitViewport viewport;
     private SpriteBatch batch;
     private UnBox<Box2dPhysicsWorld> unBox;
@@ -59,6 +61,26 @@ public class SampleGame07 extends ApplicationAdapter {
 
         new TeamEnemyBehaviour(leftGo);
         new TeamPlayerBehaviour(rightGo);
+
+        GameObject wall = new GameObject(unBox);
+        new Box2dBehaviour(BodyDefType.StaticBody, wall);
+        Vector2 position = new Vector2(10, 0);
+        new CreateBoxFixtureBehaviour(.5f, 10, position, wall);
+
+        wall = new GameObject(unBox);
+        new Box2dBehaviour(BodyDefType.StaticBody, wall);
+        position = new Vector2(-10, 0);
+        new CreateBoxFixtureBehaviour(.5f, 10, position, wall);
+
+        wall = new GameObject(unBox);
+        new Box2dBehaviour(BodyDefType.StaticBody, wall);
+        position = new Vector2(0, 9.5f);
+        new CreateBoxFixtureBehaviour(9.5f, .5f, position, wall);
+
+        wall = new GameObject(unBox);
+        new Box2dBehaviour(BodyDefType.StaticBody, wall);
+        position = new Vector2(0, -9.5f);
+        new CreateBoxFixtureBehaviour(9.5f, .5f, position, wall);
     }
 
     @Override

@@ -2,10 +2,7 @@ package com.ray3k.unbox2d.lwjgl3;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import com.ray3k.unbox2d.SampleGame03;
-import com.ray3k.unbox2d.SampleGame04;
-import com.ray3k.unbox2d.SampleGame05;
-import com.ray3k.unbox2d.SampleGame06;
+import com.ray3k.unbox2d.*;
 
 /** Launches the desktop (LWJGL3) application. */
 public class Lwjgl3Launcher {
@@ -14,7 +11,7 @@ public class Lwjgl3Launcher {
     }
 
     private static Lwjgl3Application createApplication() {
-        return new Lwjgl3Application(new SampleGame06(), getDefaultConfiguration());
+        return new Lwjgl3Application(new SampleGame08(), getDefaultConfiguration());
     }
 
     private static Lwjgl3ApplicationConfiguration getDefaultConfiguration() {
