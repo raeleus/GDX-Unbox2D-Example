@@ -11,6 +11,7 @@ public class SpriteBehavior extends BehaviourAdapter {
     private float offsetX;
     private float offsetY;
     private Sprite sprite;
+    private final Vector2 position = new Vector2();
 
     public SpriteBehavior(GameObject gameObject, float offsetX, float offsetY, Sprite sprite) {
         super(gameObject);
@@ -21,7 +22,10 @@ public class SpriteBehavior extends BehaviourAdapter {
 
     @Override
     public void fixedUpdate() {
-        Vector2 position = getGameObject().getBehaviour(Box2dBehaviour.class).getBody().getPosition();
+        if (getGameObject().getBehaviour(Box2dBehaviour.class) != null)
+            position.set(getGameObject().getBehaviour(Box2dBehaviour.class).getBody().getPosition());
+        else position.setZero();
+
         position.add(offsetX, offsetY);
         this.sprite.setPosition(position.x, position.y);
     }
