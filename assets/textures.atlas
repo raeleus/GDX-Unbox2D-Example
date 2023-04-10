@@ -1,0 +1,15 @@
+textures.png
+size:477,529
+filter:Linear,Linear
+cobweb
+bounds:28,498,30,30
+farm-tile
+bounds:124,503,25,25
+spider
+bounds:60,498,30,30
+tractor
+bounds:92,498,30,30
+wall-horizontal
+bounds:1,1,475,25
+wall-vertical
+bounds:1,28,25,500

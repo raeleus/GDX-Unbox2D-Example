@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
@@ -22,11 +23,12 @@ import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateBoxFixtureBehaviour;
 import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateCircleFixtureBehaviour;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
-public class SampleGame08 extends ApplicationAdapter {
+public class SampleGame09 extends ApplicationAdapter {
     public FitViewport viewport;
     private SpriteBatch batch;
     private UnBox<Box2dPhysicsWorld> unBox;
     private Box2DDebugRenderer debugRenderer;
+    private TextureAtlas textureAtlas;
 
     @Override
     public void create() {
@@ -35,6 +37,7 @@ public class SampleGame08 extends ApplicationAdapter {
         batch = new SpriteBatch();
         debugRenderer = new Box2DDebugRenderer();
         unBox = new UnBox<>(new Box2dPhysicsWorld(new World(new Vector2(0, 0), true)));
+        textureAtlas = new TextureAtlas(Gdx.files.internal("textures.atlas"));
 
         GameObject rightGo = new GameObject(unBox);
         GameObject leftGo = new GameObject(unBox);
@@ -63,12 +66,26 @@ public class SampleGame08 extends ApplicationAdapter {
         new TeamEnemyBehaviour(leftGo);
         new TeamPlayerBehaviour(rightGo);
 
+        Sprite sprite = new Sprite(textureAtlas.findRegion("tractor"));
+        sprite.setSize(1, 1);
+        sprite.setOriginCenter();
+        new SpriteBehavior(rightGo, -.5f, -.5f, sprite);
+
+        sprite = new Sprite(textureAtlas.findRegion("spider"));
+        sprite.setSize(1, 1);
+        sprite.setOriginCenter();
+        new SpriteBehavior(leftGo, -.5f, -.5f, sprite);
+
         GameObject wall = new GameObject(unBox);
         bodyDef = new BodyDef();
         bodyDef.type = BodyType.StaticBody;
         bodyDef.position.set(10, 0);
         new Box2dBehaviour(bodyDef, wall);
         new CreateBoxFixtureBehaviour(.5f, 10, wall);
+        sprite = new Sprite(textureAtlas.findRegion("wall-vertical"));
+        sprite.setSize(1, 20);
+        sprite.setOriginCenter();
+        new SpriteBehavior(wall, -.5f, -10, sprite);
 
         wall = new GameObject(unBox);
         bodyDef = new BodyDef();
@@ -76,6 +93,10 @@ public class SampleGame08 extends ApplicationAdapter {
         bodyDef.position.set(-10, 0);
         new Box2dBehaviour(bodyDef, wall);
         new CreateBoxFixtureBehaviour(.5f, 10, wall);
+        sprite = new Sprite(textureAtlas.findRegion("wall-vertical"));
+        sprite.setSize(1, 20);
+        sprite.setOriginCenter();
+        new SpriteBehavior(wall, -.5f, -10, sprite);
 
         wall = new GameObject(unBox);
         bodyDef = new BodyDef();
@@ -83,6 +104,10 @@ public class SampleGame08 extends ApplicationAdapter {
         bodyDef.position.set(0, 9.5f);
         new Box2dBehaviour(bodyDef, wall);
         new CreateBoxFixtureBehaviour(9.5f, .5f, wall);
+        sprite = new Sprite(textureAtlas.findRegion("wall-horizontal"));
+        sprite.setSize(19, 1);
+        sprite.setOriginCenter();
+        new SpriteBehavior(wall, -9.5f, -.5f, sprite);
 
         wall = new GameObject(unBox);
         bodyDef = new BodyDef();
@@ -90,6 +115,10 @@ public class SampleGame08 extends ApplicationAdapter {
         bodyDef.position.set(0, -9.5f);
         new Box2dBehaviour(bodyDef, wall);
         new CreateBoxFixtureBehaviour(9.5f, .5f, wall);
+        sprite = new Sprite(textureAtlas.findRegion("wall-horizontal"));
+        sprite.setSize(19, 1);
+        sprite.setOriginCenter();
+        new SpriteBehavior(wall, -9.5f, -.5f, sprite);
     }
 
     @Override
