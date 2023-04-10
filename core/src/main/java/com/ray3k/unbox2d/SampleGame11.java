@@ -132,14 +132,14 @@ public class SampleGame11 extends ApplicationAdapter {
         sprite = new Sprite(textureAtlas.findRegion("cobweb"));
         sprite.setSize(1, 1);
         sprite.setOriginCenter();
-        new SpriteImprovedBehavior(web, 8.5f, 8, sprite, RO_BACKGROUND);
+        new SpriteImprovedBehavior(web, 8.5f, 8, sprite, RO_FOREGROUND);
 
         web = new GameObject(unBox);
         sprite = new Sprite(textureAtlas.findRegion("cobweb"));
         sprite.setSize(1, 1);
         sprite.setOriginCenter();
         sprite.flip(true, false);
-        new SpriteImprovedBehavior(web, -9.5f, 8, sprite, RO_BACKGROUND);
+        new SpriteImprovedBehavior(web, -9.5f, 8, sprite, RO_FOREGROUND);
 
         web = new GameObject(unBox);
         sprite = new Sprite(textureAtlas.findRegion("cobweb"));
