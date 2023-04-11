@@ -16,7 +16,6 @@ public class KeyboardBehaviour extends BehaviourAdapter {
 
     @Override
     public void fixedUpdate() {
-        Vector2 position = getGameObject().getBehaviour(Box2dBehaviour.class).getBody().getPosition();
         getGameObject().getBehaviour(Box2dBehaviour.class).getBody().setLinearVelocity(velocity);
     }
 
