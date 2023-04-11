@@ -1,36 +1,38 @@
-# gdx-unbox2d-example
+# UnBox2D Example
 
-A [libGDX](https://libgdx.com/) project generated with [gdx-liftoff](https://github.com/tommyettinger/gdx-liftoff).
+This is an example game accompanying the tutorial video on GDX UnBox2D. Please watch the video here:
 
-This project was generated with a template including simple application launchers and an `ApplicationAdapter` extension that draws libGDX logo.
+The repo is separated into different samples to match the various sections of the tutorial:
 
-## Platforms
+## SampleGame01
+Adding Box2D to a GameObject.
 
-- `core`: Main module with the application logic shared by all platforms.
-- `lwjgl3`: Primary desktop platform using LWJGL3.
-- `html`: Web platform using GWT and WebGL. Supports only Java projects.
+## SampleGame02
+Basic example of UnBox2D.
 
-## Gradle
+## SampleGame03
+Adding a fixture.
 
-This project uses [Gradle](http://gradle.org/) to manage dependencies.
-The Gradle wrapper was included, so you can run Gradle tasks using `gradlew.bat` or `./gradlew` commands.
-Useful Gradle tasks and flags:
+## SampleGame04
+Keyboard control.
 
-- `--continue`: when using this flag, errors will not stop the tasks from running.
-- `--daemon`: thanks to this flag, Gradle daemon will be used to run chosen tasks.
-- `--offline`: when using this flag, cached dependency archives will be used.
-- `--refresh-dependencies`: this flag forces validation of all dependencies. Useful for snapshot versions.
-- `build`: builds sources and archives of every project.
-- `cleanEclipse`: removes Eclipse project data.
-- `cleanIdea`: removes IntelliJ project data.
-- `clean`: removes `build` folders, which store compiled classes and built archives.
-- `eclipse`: generates Eclipse project data.
-- `html:dist`: compiles GWT sources. The compiled application can be found at `html/build/dist`: you can use any HTTP server to deploy it.
-- `html:superDev`: compiles GWT sources and runs the application in SuperDev mode. It will be available at [localhost:8080/html](http://localhost:8080/html). Use only during development.
-- `idea`: generates IntelliJ project data.
-- `lwjgl3:jar`: builds application's runnable jar, which can be found at `lwjgl3/build/libs`.
-- `lwjgl3:run`: starts the application.
-- `test`: runs unit tests (if any).
+## SampleGame05
+Switching control of left and right.
 
-Note that most tasks that are not specific to a single project can be run with `name:` prefix, where the `name` should be replaced with the ID of a specific project.
-For example, `core:clean` removes `build` folder only from the `core` project.
+## SampleGame06
+Adding collision behavior.
+
+## SampleGame07
+Adding teams.
+
+## SampleGame08
+Adding walls.
+
+## SampleGame09
+Adding sprites.
+
+## SampleGame10
+Adding a background and details.
+
+## SampleGame11
+Setting Render Order.
