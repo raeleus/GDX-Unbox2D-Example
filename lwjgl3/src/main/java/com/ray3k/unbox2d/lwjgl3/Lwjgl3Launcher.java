@@ -2,7 +2,6 @@ package com.ray3k.unbox2d.lwjgl3;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import com.ray3k.unbox2d.SampleGame10;
 import com.ray3k.unbox2d.SampleGame11;
 
 /** Launches the desktop (LWJGL3) application. */
