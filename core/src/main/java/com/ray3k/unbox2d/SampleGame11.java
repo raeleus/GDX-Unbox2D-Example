@@ -71,12 +71,12 @@ public class SampleGame11 extends ApplicationAdapter {
         Sprite sprite = new Sprite(textureAtlas.findRegion("tractor"));
         sprite.setSize(1, 1);
         sprite.setOriginCenter();
-        new SpriteImprovedBehavior(rightGo, -.5f, -.5f, sprite, RO_CHARACTERS);
+        new SpriteImprovedBehaviour(rightGo, -.5f, -.5f, sprite, RO_CHARACTERS);
 
         sprite = new Sprite(textureAtlas.findRegion("spider"));
         sprite.setSize(1, 1);
         sprite.setOriginCenter();
-        new SpriteImprovedBehavior(leftGo, -.5f, -.5f, sprite, RO_CHARACTERS);
+        new SpriteImprovedBehaviour(leftGo, -.5f, -.5f, sprite, RO_CHARACTERS);
 
         GameObject wall = new GameObject(unBox);
         bodyDef = new BodyDef();
@@ -87,7 +87,7 @@ public class SampleGame11 extends ApplicationAdapter {
         sprite = new Sprite(textureAtlas.findRegion("wall-vertical"));
         sprite.setSize(1, 20);
         sprite.setOriginCenter();
-        new SpriteImprovedBehavior(wall, -.5f, -10, sprite, RO_BACKGROUND);
+        new SpriteImprovedBehaviour(wall, -.5f, -10, sprite, RO_BACKGROUND);
 
         wall = new GameObject(unBox);
         bodyDef = new BodyDef();
@@ -98,7 +98,7 @@ public class SampleGame11 extends ApplicationAdapter {
         sprite = new Sprite(textureAtlas.findRegion("wall-vertical"));
         sprite.setSize(1, 20);
         sprite.setOriginCenter();
-        new SpriteImprovedBehavior(wall, -.5f, -10, sprite, RO_BACKGROUND);
+        new SpriteImprovedBehaviour(wall, -.5f, -10, sprite, RO_BACKGROUND);
 
         wall = new GameObject(unBox);
         bodyDef = new BodyDef();
@@ -109,7 +109,7 @@ public class SampleGame11 extends ApplicationAdapter {
         sprite = new Sprite(textureAtlas.findRegion("wall-horizontal"));
         sprite.setSize(19, 1);
         sprite.setOriginCenter();
-        new SpriteImprovedBehavior(wall, -9.5f, -.5f, sprite, RO_BACKGROUND);
+        new SpriteImprovedBehaviour(wall, -9.5f, -.5f, sprite, RO_BACKGROUND);
 
         wall = new GameObject(unBox);
         bodyDef = new BodyDef();
@@ -120,40 +120,40 @@ public class SampleGame11 extends ApplicationAdapter {
         sprite = new Sprite(textureAtlas.findRegion("wall-horizontal"));
         sprite.setSize(19, 1);
         sprite.setOriginCenter();
-        new SpriteImprovedBehavior(wall, -9.5f, -.5f, sprite, RO_BACKGROUND);
+        new SpriteImprovedBehaviour(wall, -9.5f, -.5f, sprite, RO_BACKGROUND);
 
         GameObject ground = new GameObject(unBox);
         sprite = new Sprite(textureAtlas.findRegion("ground"));
         sprite.setSize(19, 18);
         sprite.setOriginCenter();
-        new SpriteImprovedBehavior(ground, -9.5f, -9, sprite, RO_BACKGROUND);
+        new SpriteImprovedBehaviour(ground, -9.5f, -9, sprite, RO_BACKGROUND);
 
         GameObject web = new GameObject(unBox);
         sprite = new Sprite(textureAtlas.findRegion("cobweb"));
         sprite.setSize(1, 1);
         sprite.setOriginCenter();
-        new SpriteImprovedBehavior(web, 8.5f, 8, sprite, RO_FOREGROUND);
+        new SpriteImprovedBehaviour(web, 8.5f, 8, sprite, RO_FOREGROUND);
 
         web = new GameObject(unBox);
         sprite = new Sprite(textureAtlas.findRegion("cobweb"));
         sprite.setSize(1, 1);
         sprite.setOriginCenter();
         sprite.flip(true, false);
-        new SpriteImprovedBehavior(web, -9.5f, 8, sprite, RO_FOREGROUND);
+        new SpriteImprovedBehaviour(web, -9.5f, 8, sprite, RO_FOREGROUND);
 
         web = new GameObject(unBox);
         sprite = new Sprite(textureAtlas.findRegion("cobweb"));
         sprite.setSize(1, 1);
         sprite.setOriginCenter();
         sprite.flip(false, true);
-        new SpriteImprovedBehavior(web, 8.5f, -9, sprite, RO_FOREGROUND);
+        new SpriteImprovedBehaviour(web, 8.5f, -9, sprite, RO_FOREGROUND);
 
         web = new GameObject(unBox);
         sprite = new Sprite(textureAtlas.findRegion("cobweb"));
         sprite.setSize(1, 1);
         sprite.setOriginCenter();
         sprite.flip(true, true);
-        new SpriteImprovedBehavior(web, -9.5f, -9, sprite, RO_FOREGROUND);
+        new SpriteImprovedBehaviour(web, -9.5f, -9, sprite, RO_FOREGROUND);
     }
 
     @Override

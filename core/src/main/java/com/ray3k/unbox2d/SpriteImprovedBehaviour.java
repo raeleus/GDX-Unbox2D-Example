@@ -7,13 +7,13 @@ import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 import dev.lyze.gdxUnBox2d.behaviours.Box2dBehaviour;
 
-public class SpriteImprovedBehavior extends BehaviourAdapter {
+public class SpriteImprovedBehaviour extends BehaviourAdapter {
     private float offsetX;
     private float offsetY;
     private Sprite sprite;
     private final Vector2 position = new Vector2();
 
-    public SpriteImprovedBehavior(GameObject gameObject, float offsetX, float offsetY, Sprite sprite, float renderOrder) {
+    public SpriteImprovedBehaviour(GameObject gameObject, float offsetX, float offsetY, Sprite sprite, float renderOrder) {
         super(gameObject);
         this.offsetX = offsetX;
         this.offsetY = offsetY;
