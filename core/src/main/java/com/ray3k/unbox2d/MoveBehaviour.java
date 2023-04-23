@@ -3,7 +3,7 @@ package com.ray3k.unbox2d;
 import com.badlogic.gdx.math.Vector2;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
-import dev.lyze.gdxUnBox2d.behaviours.Box2dBehaviour;
+import dev.lyze.gdxUnBox2d.behaviours.box2d.Box2dBehaviour;
 
 public class MoveBehaviour extends BehaviourAdapter {
     private final boolean moveToRight;

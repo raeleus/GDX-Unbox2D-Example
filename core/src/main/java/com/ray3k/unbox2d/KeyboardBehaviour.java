@@ -5,7 +5,7 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.math.Vector2;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
-import dev.lyze.gdxUnBox2d.behaviours.Box2dBehaviour;
+import dev.lyze.gdxUnBox2d.behaviours.box2d.Box2dBehaviour;
 
 public class KeyboardBehaviour extends BehaviourAdapter {
     private final Vector2 velocity = new Vector2();

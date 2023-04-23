@@ -16,10 +16,10 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import dev.lyze.gdxUnBox2d.Box2dPhysicsWorld;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.UnBox;
-import dev.lyze.gdxUnBox2d.behaviours.Box2dBehaviour;
+import dev.lyze.gdxUnBox2d.behaviours.box2d.Box2dBehaviour;
 import dev.lyze.gdxUnBox2d.behaviours.SoutBehaviour;
-import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateBoxFixtureBehaviour;
-import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateCircleFixtureBehaviour;
+import dev.lyze.gdxUnBox2d.behaviours.box2d.fixtures.CreateBox2dBoxFixtureBehaviour;
+import dev.lyze.gdxUnBox2d.behaviours.box2d.fixtures.CreateBox2dCircleFixtureBehaviour;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class SampleGame11 extends ApplicationAdapter {
@@ -54,8 +54,8 @@ public class SampleGame11 extends ApplicationAdapter {
         bodyDef.position.set(-5f, 0);
         new Box2dBehaviour(bodyDef, leftGo);
 
-        new CreateCircleFixtureBehaviour(.5f, rightGo);
-        new CreateCircleFixtureBehaviour(.5f, leftGo);
+        new CreateBox2dCircleFixtureBehaviour(.5f, rightGo);
+        new CreateBox2dCircleFixtureBehaviour(.5f, leftGo);
 
         new SoutBehaviour("Right GO", false, rightGo);
         new SoutBehaviour("Left GO", false, leftGo);
@@ -83,7 +83,7 @@ public class SampleGame11 extends ApplicationAdapter {
         bodyDef.type = BodyType.StaticBody;
         bodyDef.position.set(10, 0);
         new Box2dBehaviour(bodyDef, wall);
-        new CreateBoxFixtureBehaviour(.5f, 10, wall);
+        new CreateBox2dBoxFixtureBehaviour(.5f, 10, wall);
         sprite = new Sprite(textureAtlas.findRegion("wall-vertical"));
         sprite.setSize(1, 20);
         sprite.setOriginCenter();
@@ -94,7 +94,7 @@ public class SampleGame11 extends ApplicationAdapter {
         bodyDef.type = BodyType.StaticBody;
         bodyDef.position.set(-10, 0);
         new Box2dBehaviour(bodyDef, wall);
-        new CreateBoxFixtureBehaviour(.5f, 10, wall);
+        new CreateBox2dBoxFixtureBehaviour(.5f, 10, wall);
         sprite = new Sprite(textureAtlas.findRegion("wall-vertical"));
         sprite.setSize(1, 20);
         sprite.setOriginCenter();
@@ -105,7 +105,7 @@ public class SampleGame11 extends ApplicationAdapter {
         bodyDef.type = BodyType.StaticBody;
         bodyDef.position.set(0, 9.5f);
         new Box2dBehaviour(bodyDef, wall);
-        new CreateBoxFixtureBehaviour(9.5f, .5f, wall);
+        new CreateBox2dBoxFixtureBehaviour(9.5f, .5f, wall);
         sprite = new Sprite(textureAtlas.findRegion("wall-horizontal"));
         sprite.setSize(19, 1);
         sprite.setOriginCenter();
@@ -116,7 +116,7 @@ public class SampleGame11 extends ApplicationAdapter {
         bodyDef.type = BodyType.StaticBody;
         bodyDef.position.set(0, -9.5f);
         new Box2dBehaviour(bodyDef, wall);
-        new CreateBoxFixtureBehaviour(9.5f, .5f, wall);
+        new CreateBox2dBoxFixtureBehaviour(9.5f, .5f, wall);
         sprite = new Sprite(textureAtlas.findRegion("wall-horizontal"));
         sprite.setSize(19, 1);
         sprite.setOriginCenter();

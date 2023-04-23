@@ -14,9 +14,9 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import dev.lyze.gdxUnBox2d.Box2dPhysicsWorld;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.UnBox;
-import dev.lyze.gdxUnBox2d.behaviours.Box2dBehaviour;
+import dev.lyze.gdxUnBox2d.behaviours.box2d.Box2dBehaviour;
 import dev.lyze.gdxUnBox2d.behaviours.SoutBehaviour;
-import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateCircleFixtureBehaviour;
+import dev.lyze.gdxUnBox2d.behaviours.box2d.fixtures.CreateBox2dCircleFixtureBehaviour;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class SampleGame07 extends ApplicationAdapter {
@@ -46,8 +46,8 @@ public class SampleGame07 extends ApplicationAdapter {
         bodyDef.position.set(-5f, 0);
         new Box2dBehaviour(bodyDef, leftGo);
 
-        new CreateCircleFixtureBehaviour(.5f, rightGo);
-        new CreateCircleFixtureBehaviour(.5f, leftGo);
+        new CreateBox2dCircleFixtureBehaviour(.5f, rightGo);
+        new CreateBox2dCircleFixtureBehaviour(.5f, leftGo);
 
         new SoutBehaviour("Right GO", false, rightGo);
         new SoutBehaviour("Left GO", false, leftGo);
