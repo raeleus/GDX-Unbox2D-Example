@@ -315,8 +315,8 @@ ApplicationAdapter
 
         // Attach a movement behaviour to both game objects
         new MoveBehaviour(true, leftGo);
-        new KeyboardImprovedBehaviour(rightGo);
-        new PlayerCollisionImprovedBehaviour(rightGo);
+        new KeyboardBehaviour(rightGo);
+        new PlayerCollisionBehaviour(rightGo);
 
         new TeamEnemyBehaviour(leftGo);
         new TeamPlayerBehaviour(rightGo);
@@ -342,8 +342,8 @@ ApplicationAdapter
         
         // Attach a movement behaviour to both game objects
         new MoveBehaviour(true, leftGo);
-        new KeyboardImprovedBehaviour(rightGo);
-        new PlayerCollisionImprovedBehaviour(rightGo);
+        new KeyboardBehaviour(rightGo);
+        new PlayerCollisionBehaviour(rightGo);
 
         new TeamEnemyBehaviour(leftGo);
         new TeamPlayerBehaviour(rightGo);
@@ -378,7 +378,7 @@ ApplicationAdapter
     }
 ```
 
-So far, we’ve only been able to see any of these bodies because of the Box2DDebugRenderer. We should create a behavior that can draw our objects to the screen with some Sprite representations. Download the [texture files](). Then this simple SpriteBehaviour will draw the provided image at the body position with a given offset. If there is no attached box2dbehaviour, just set the position as 0, 0.
+So far, we’ve only been able to see any of these bodies because of the Box2DDebugRenderer. We should create a behavior that can draw our objects to the screen with some Sprite representations. Download the [texture files](https://github.com/raeleus/GDX-Unbox2D-Example/releases). Then this simple SpriteBehaviour will draw the provided image at the body position with a given offset. If there is no attached box2dbehaviour, just set the position as 0, 0.
 
 ```java
 public class SpriteBehaviour extends BehaviourAdapter {
@@ -523,7 +523,7 @@ It's time for some polish. This poor game is lacking some pop. We have this grou
 That might be okay for cheap games with little complexity, but we should use setRenderOrder on the sprite behavior to specify what is supposed to be in the background and the foreground. You can type any float in here with smaller numbers rendered in the back and larger toward the front. To keep your render orders organized and easy to modify, create some final static variables in your game class to reference throughout your code. This way you can group your backgrounds, foregrounds, and everything in between. Objects sharing the same render order will be sorted by creation order, but that usually is not a problem.
 
 ```java
-public SpriteImprovedBehaviour(GameObject gameObject, float offsetX, float offsetY, Sprite sprite, float renderOrder) {
+public SpriteBehaviour(GameObject gameObject, float offsetX, float offsetY, Sprite sprite, float renderOrder) {
         super(gameObject);
         this.offsetX = offsetX;
         this.offsetY = offsetY;
@@ -546,12 +546,12 @@ public SpriteImprovedBehaviour(GameObject gameObject, float offsetX, float offse
         Sprite sprite = new Sprite(textureAtlas.findRegion("tractor"));
         sprite.setSize(1, 1);
         sprite.setOriginCenter();
-        new SpriteImprovedBehaviour(rightGo, -.5f, -.5f, sprite, RO_CHARACTERS);
+        new SpriteBehaviour(rightGo, -.5f, -.5f, sprite, RO_CHARACTERS);
 
         sprite = new Sprite(textureAtlas.findRegion("spider"));
         sprite.setSize(1, 1);
         sprite.setOriginCenter();
-        new SpriteImprovedBehaviour(leftGo, -.5f, -.5f, sprite, RO_CHARACTERS);
+        new SpriteBehaviour(leftGo, -.5f, -.5f, sprite, RO_CHARACTERS);
 
         GameObject wall = new GameObject(unBox);
         bodyDef = new BodyDef();
@@ -562,7 +562,7 @@ public SpriteImprovedBehaviour(GameObject gameObject, float offsetX, float offse
         sprite = new Sprite(textureAtlas.findRegion("wall-vertical"));
         sprite.setSize(1, 20);
         sprite.setOriginCenter();
-        new SpriteImprovedBehaviour(wall, -.5f, -10, sprite, RO_BACKGROUND);
+        new SpriteBehaviour(wall, -.5f, -10, sprite, RO_BACKGROUND);
 
         wall = new GameObject(unBox);
         bodyDef = new BodyDef();
@@ -573,7 +573,7 @@ public SpriteImprovedBehaviour(GameObject gameObject, float offsetX, float offse
         sprite = new Sprite(textureAtlas.findRegion("wall-vertical"));
         sprite.setSize(1, 20);
         sprite.setOriginCenter();
-        new SpriteImprovedBehaviour(wall, -.5f, -10, sprite, RO_BACKGROUND);
+        new SpriteBehaviour(wall, -.5f, -10, sprite, RO_BACKGROUND);
 
         wall = new GameObject(unBox);
         bodyDef = new BodyDef();
@@ -584,7 +584,7 @@ public SpriteImprovedBehaviour(GameObject gameObject, float offsetX, float offse
         sprite = new Sprite(textureAtlas.findRegion("wall-horizontal"));
         sprite.setSize(19, 1);
         sprite.setOriginCenter();
-        new SpriteImprovedBehaviour(wall, -9.5f, -.5f, sprite, RO_BACKGROUND);
+        new SpriteBehaviour(wall, -9.5f, -.5f, sprite, RO_BACKGROUND);
 
         wall = new GameObject(unBox);
         bodyDef = new BodyDef();
@@ -595,40 +595,40 @@ public SpriteImprovedBehaviour(GameObject gameObject, float offsetX, float offse
         sprite = new Sprite(textureAtlas.findRegion("wall-horizontal"));
         sprite.setSize(19, 1);
         sprite.setOriginCenter();
-        new SpriteImprovedBehaviour(wall, -9.5f, -.5f, sprite, RO_BACKGROUND);
+        new SpriteBehaviour(wall, -9.5f, -.5f, sprite, RO_BACKGROUND);
 
         GameObject ground = new GameObject(unBox);
         sprite = new Sprite(textureAtlas.findRegion("ground"));
         sprite.setSize(19, 18);
         sprite.setOriginCenter();
-        new SpriteImprovedBehaviour(ground, -9.5f, -9, sprite, RO_BACKGROUND);
+        new SpriteBehaviour(ground, -9.5f, -9, sprite, RO_BACKGROUND);
 
         GameObject web = new GameObject(unBox);
         sprite = new Sprite(textureAtlas.findRegion("cobweb"));
         sprite.setSize(1, 1);
         sprite.setOriginCenter();
-        new SpriteImprovedBehaviour(web, 8.5f, 8, sprite, RO_FOREGROUND);
+        new SpriteBehaviour(web, 8.5f, 8, sprite, RO_FOREGROUND);
 
         web = new GameObject(unBox);
         sprite = new Sprite(textureAtlas.findRegion("cobweb"));
         sprite.setSize(1, 1);
         sprite.setOriginCenter();
         sprite.flip(true, false);
-        new SpriteImprovedBehaviour(web, -9.5f, 8, sprite, RO_FOREGROUND);
+        new SpriteBehaviour(web, -9.5f, 8, sprite, RO_FOREGROUND);
 
         web = new GameObject(unBox);
         sprite = new Sprite(textureAtlas.findRegion("cobweb"));
         sprite.setSize(1, 1);
         sprite.setOriginCenter();
         sprite.flip(false, true);
-        new SpriteImprovedBehaviour(web, 8.5f, -9, sprite, RO_FOREGROUND);
+        new SpriteBehaviour(web, 8.5f, -9, sprite, RO_FOREGROUND);
 
         web = new GameObject(unBox);
         sprite = new Sprite(textureAtlas.findRegion("cobweb"));
         sprite.setSize(1, 1);
         sprite.setOriginCenter();
         sprite.flip(true, true);
-        new SpriteImprovedBehaviour(web, -9.5f, -9, sprite, RO_FOREGROUND);
+        new SpriteBehaviour(web, -9.5f, -9, sprite, RO_FOREGROUND);
     }
 ```
 
